@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+         font-family: 'Poppins', sans-serif, 'Segoe UI';
+    }
+
+    .trending {
+      max-width: 1000px;
+      margin: 20px 10%;
+      position: relative;
+
+      overflow: hidden;
+      /* Keeps arrows clipped inside */
+    }
+
+    .trending .heading {
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif, 'Segoe UI';
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 1s ease;
+    }
+
+    .card {
+      width: 180px;
+      height: 250px;
+      box-sizing: border-box;
+      padding: 10px;
+      margin: 1px 16px;
+      text-align: center;
+      flex: 0 0 auto;
+      cursor: pointer;
+      /* Prevent shrinking */
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 100%;
+      background: #ddd;
+      object-fit: cover;
+    }
+
+    img:hover {
+      scale: 1.1;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      /* Black background with 0.8 opacity */
+      color: white;
+      /* White arrow icon */
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 50%;
+      /* Optional: makes them circular */
+      font-size: 18px;
+    }
+
+    .arrow.left {
+      left: 10px;
+      /* Inside the carousel */
+    }
+
+    .arrow.right {
+      right: 10px;
+      /* Inside the carousel */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="trending">
+    <div class="heading">Trending Now</div>
+    <button class="arrow left" onclick="moveCarousel(-1)">&#10094;</button>
+    <div class="carousel-viewport">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="card"><img src="images/jaat.webp" alt=""></div>
+        <div class="card"><img src="images/Hit3.webp" alt=""></div>
+        <div class="card"><img src="images/retro.webp" alt=""></div>
+        <div class="card"><img src="images/chhava.webp" alt=""></div>
+        <div class="card"><img src="images/royals.webp" alt=""></div>
+        <div class="card"><img src="images/sikandar.webp" alt=""></div>
+        <div class="card"><img src="images/diplomat.webp" alt=""></div>
+        <div class="card"><img src="images/good-bad-ugly.webp" alt=""></div>
+        <div class="card"><img src="images/pushpa2.webp" alt=""></div>
+        <div class="card"><img src="images/rana-naidu.webp" alt=""></div>
+      </div>
+    </div>
+    <button class="arrow right" onclick="moveCarousel(1)">&#10095;</button>
+  </div>
+
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const cards = track.querySelectorAll('.card');
+    let currentIndex = 0;
+
+    function getCardsPerView() {
+  const containerWidth = document.querySelector('.carousel-viewport').offsetWidth;
+  const card = cards[0];
+  const cardStyle = window.getComputedStyle(card);
+  const cardWidth = card.offsetWidth + 
+                    parseInt(cardStyle.marginLeft) + 
+                    parseInt(cardStyle.marginRight);
+
+  return Math.floor(containerWidth / cardWidth);
+}
+
+    function moveCarousel(direction) {
+  const card = cards[0];
+  const cardStyle = window.getComputedStyle(card);
+  const cardWidth = card.offsetWidth + 
+                    parseInt(cardStyle.marginLeft) + 
+                    parseInt(cardStyle.marginRight);
+
+  const visibleCards = getCardsPerView();
+  const totalCards = cards.length;
+
+  const maxShiftIndex = totalCards - visibleCards;
+  currentIndex += direction * visibleCards;
+
+  if (currentIndex > maxShiftIndex) {
+    currentIndex = maxShiftIndex;
+  }
+  if (currentIndex < 0) {
+    currentIndex = 0;
+  }
+
+  const moveAmount = currentIndex * cardWidth;
+  track.style.transform = `translateX(-${moveAmount}px)`;
+}
+
+    window.addEventListener('resize', () => {
+      currentIndex = 0;
+      track.style.transform = 'translateX(0px)';
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Cards</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+         font-family: 'Poppins', sans-serif, 'Segoe UI';
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: white;
+  
+
+    }
+
+    .container {
+      max-width: 1200px;
+      /* margin: auto; */
+      padding: 20px;
+      
+          margin: 0 10%;
+      
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cards {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .card {
+      background: linear-gradient(135deg,rgba(26, 33, 69, 1) 0%, rgba(33, 14, 23, 1) 100%);
+      padding: 15px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-height: 200px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .card p {
+      font-size: 14px;
+      font-weight: 200;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .card img {
+      width: 72px;
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>More reasons to join</h2>
+    <div class="cards">
+
+      <!-- Card 1 -->
+      <div class="card">
+        <h3>Enjoy on your TV</h3>
+        <p>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        <img src="images/icons8-television-48.png" alt="TV Icon">
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <h3>Download your shows to watch offline</h3>
+        <p>Save your favourites easily and always have something to watch.</p>
+        <img src="images/icons8-download-100.png" alt="Download Icon">
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <h3>Watch everywhere</h3>
+        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.</p>
+        <img src="images/icons8-telescope-64.png" alt="Watch Icon">
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <h3>Create profiles for kids</h3>
+        <p>Send kids on adventures with their favourite characters in a space made just for them — free with your membership.</p>
+        <img src="images/c5fa0cf2-8f08-4d0c-8462-ac2b953c89bf.png" alt="Kids Icon">
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
