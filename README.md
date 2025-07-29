@@ -20,3 +20,8 @@ A responsive front-end clone of a video streaming platform inspired by Netflix, 
 - HTML5
 - CSS3 (Flexbox/Grid)
 - JavaScript
+
+
+## Live Demo
+
+- https://netflix-clone-tau-gray-29.vercel.app/
