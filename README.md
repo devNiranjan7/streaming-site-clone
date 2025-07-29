@@ -21,6 +21,7 @@ A responsive front-end clone of a video streaming platform inspired by Netflix, 
 - CSS3 (Flexbox/Grid)
 - JavaScript
 
+---
 
 ## Live Demo
 
