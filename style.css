@@ -197,7 +197,8 @@ nav div button {
 }
 
 .faq summary::after {
-    content: url('https://img.icons8.com/?size=36&id=3220&format=png&color=ffffff');
+    content: url('images/plus.png');
+    filter: invert(1);
     position: absolute;
     right: 24px;
     top:24px;
@@ -210,7 +211,8 @@ nav div button {
 }
 
 .faq details[open] summary::after {
-    content: url('https://img.icons8.com/?size=36&id=85458&format=png&color=ffffff');
+    content: url('images/minus.png');
+    filter: invert(1);
 }
 
 .faq details>p {
