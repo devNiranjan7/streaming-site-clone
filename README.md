@@ -25,4 +25,4 @@ A responsive front-end clone of a video streaming platform inspired by Netflix, 
 
 ## Live Demo
 
-- https://eduflix-ten.vercel.app/
+- https://eduflix-flame.vercel.app/
