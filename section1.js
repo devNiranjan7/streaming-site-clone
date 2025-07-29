@@ -1,8 +1,8 @@
 const track = document.getElementById('carouselTrack');
-    const cards = track.querySelectorAll('.card');
-    let currentIndex = 0;
+const cards = track.querySelectorAll('.card');
+let currentIndex = 0;
 
-    function getCardsPerView() {
+function getCardsPerView() {
   const containerWidth = document.querySelector('.carousel-viewport').offsetWidth;
   const card = cards[0];
   const cardStyle = window.getComputedStyle(card);
@@ -13,7 +13,7 @@ const track = document.getElementById('carouselTrack');
   return Math.floor(containerWidth / cardWidth);
 }
 
-    function moveCarousel(direction) {
+function moveCarousel(direction) {
   const card = cards[0];
   const cardStyle = window.getComputedStyle(card);
   const cardWidth = card.offsetWidth + 
@@ -37,7 +37,9 @@ const track = document.getElementById('carouselTrack');
   track.style.transform = `translateX(-${moveAmount}px)`;
 }
 
-    window.addEventListener('resize', () => {
-      currentIndex = 0;
-      track.style.transform = 'translateX(0px)';
-    });
+window.addEventListener('resize', () => {
+  currentIndex = 0;
+  track.style.transform = 'translateX(0px)';
+});
+
+window.moveCarousel = moveCarousel;
